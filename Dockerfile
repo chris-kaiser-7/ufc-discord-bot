@@ -35,7 +35,7 @@ RUN adduser \
 # Leverage a bind mount to requirements.txt to avoid having to copy them into
 # into this layer.
 #ARG RAILWAY_SERVICE_ID=619c29ae-c818-4711-bbde-b9d6ad9d3e81
-RUN --mount=type=cache,id=s/619c29ae-c818-4711-bbde-b9d6ad9d3e81-/root/cache/pip,target=/root/.cache/pip \
+RUN --mount=type=cache,id=s/619c29ae-c818-4711-bbde-b9d6ad9d3e81-/root/.cache/pip,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     python -m pip install -r requirements.txt
 
